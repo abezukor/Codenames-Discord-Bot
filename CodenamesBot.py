@@ -3,10 +3,12 @@ from discord import User
 import discord
 import asyncio
 from Codenames import Game
+from ImageGenerator import BoardGenerator
 
 prefix = "!"
 bot = Bot(command_prefix=prefix)
 
+boardgen = BoardGenerator()
 cngames = {}
 
 @bot.event
@@ -18,7 +20,7 @@ async def on_ready():
 #async def on_message(message):
 #    print("The message's content was", message.content)
 async def saystatus(ctx,game,dm=True):
-	await bot.say(game.printableBoard())
+	await bot.say(file=boardgen.makeBoard(game.getBoardArray()))
 
 	if(dm):
 		await bot.send_message(game.getBlueCM(), game.getGameState())

@@ -62,12 +62,8 @@ class Game:
     def getCurrentTurn(self):
         return self.currentTurn
     
-    def printableBoard(self):
-        twoDBoard = [self.inputWords[5*n:5*n+5] for n in range(len(self.inputWords)//5)]
-
-        table = "```" + tabulate(twoDBoard, tablefmt="grid") + "```"
-        #print(table)
-        return table
+    def getBoardArray(self):
+        return [self.inputWords[5*n:5*n+5] for n in range(len(self.inputWords)//5)]
     
     def getGameState(self):
         return("Blue words remaining: {} \n Red words remaining: {} \n Assassin: {} \n Bystanders remaining: {}"
