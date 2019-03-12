@@ -21,7 +21,7 @@ async def saystatus(ctx,game,dm=True):
 	await bot.say(game.printableBoard())
 
 	if(dm):
-		await bot.send_message(game.getRedCM(), game.getGameState())
+		await bot.send_message(game.getBlueCM(), game.getGameState())
 		await bot.send_message(game.getRedCM(), game.getGameState())
 
 @bot.command(pass_context=True)
@@ -43,11 +43,11 @@ async def startcn(ctx, *users: discord.User):
 	
 	
 	await bot.send_message(game.getBlueCM(), "You are the blue codemaster.")
-	await bot.send_message(game.getBlueCM(), "You are the red codemaster.")
+	await bot.send_message(game.getRedCM(), "You are the red codemaster.")
 
 	await saystatus(ctx,game)
 
-	await bot.say("It is {} teams turn to guess.".format(game.currentTurn))
+	await bot.say("It is {} team's turn to guess.".format(game.currentTurn))
 
 @bot.command(pass_context=True)
 async def end(ctx):
