@@ -25,6 +25,8 @@ https://discordapp.com/oauth2/authorize?client_id=553991406415511572&scope=bot&p
     This command allows players to make guesses. EX:
         
         !guess local
+*       !pastclues
+    This command gives a list of previous clues, for reference.
 *       !skip
     This command will skip all remaining guesses on the current teams turn and go to the next turn
 *       !end
