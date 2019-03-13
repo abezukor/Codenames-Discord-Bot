@@ -1,5 +1,6 @@
 from PIL import Image, ImageDraw, ImageFont
 import copy
+import io
 
 class BoardGenerator:
     def __init__(self):
@@ -33,5 +34,9 @@ class BoardGenerator:
                 elif entry=="ASSASSIN": finalboard.paste(self.assassin,(j*124,i*79))
                 else: finalboard.paste(self.makeCard(entry),(j*124,i*79))
         
-        finalboard.save("Resources/board.jpg")
-        return open("Resources/board.jpg","rb")
+        b = io.BytesIO()
+        finalboard.save(b, format="JPEG")
+        b.seek(0)
+        b.name="board.jpg"
+
+        return b
